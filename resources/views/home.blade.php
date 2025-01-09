@@ -3,6 +3,6 @@
         Home Page
     </x-slot:heading>
 
-    <h1>hi contact page</h1>
+    <h1>hi home page</h1>
 
 </x-layout>

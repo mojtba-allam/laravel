@@ -1,7 +1,15 @@
 <x-layout>
-<x-slot:heading>
-        Job listings
-    </x-slot:heading>
+    <x-slot:heading class="ml-10 flex items-baseline space-x-4">
+    <div class="flex items-center justify-between w-full">
+        <div>Job listings</div>
+        <a href="/create"
+            class="rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-auto">
+            Create a job
+        </a>
+    </div>
+</x-slot:heading>
+
+
     <div class="space-y-5">
         @foreach ($jobs as $job )
 
@@ -15,6 +23,7 @@
 
         @endforeach
 
+        </div>
         <div>
             {{$jobs->links()}}
         </div>
