@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            // UserSeeder::class, // Remove this line if not needed
+            EmployerSeeder::class,
+            // Add other seeders here
+        ]);
 
         User::factory()->create([
             'first_name' => 'John',
@@ -22,6 +27,5 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(JobSeeder::class);
-
     }
 }

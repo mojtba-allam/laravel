@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/js/app.js')
 </head>
 
 <body class="h-full">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        @guest                            
+                        @guest
                             <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
                             <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                         @endguest
@@ -73,7 +73,7 @@
                         <img class="h-10 w-10 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg" alt="">
                     </div>
                     <div class="ml-3">
-                        <div class="text-base font-medium leading-none text-white">Rashid Korko</div>
+                        <div class="text-base font-medium leading-none text-white">Mojtba Allam</div>
                         <div class="text-sm font-medium leading-none text-gray-400">jeffrey@laracasts.com</div>
                     </div>
                     <button type="button" class="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">

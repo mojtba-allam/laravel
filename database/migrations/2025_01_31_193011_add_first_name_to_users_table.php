@@ -11,15 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_listings', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('employer_id');
-            $table->string('title');
-            $table->string('salary');
-
-            $table->timestamps();
-
-
+        Schema::table('users', function (Blueprint $table) {
+            //
         });
     }
 
@@ -28,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_listings');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
