@@ -130,7 +130,6 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { Head, usePage, router } from '@inertiajs/vue3';
-import { FilterMatchMode } from 'primevue/api';
 import Layout from '../Layout.vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
@@ -147,7 +146,7 @@ const isAuthenticated = computed(() => !!page.props.auth?.user);
 
 // DataTable filters
 const filters = ref({
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS }
+    global: { value: null, matchMode: 'contains' }
 });
 
 // Delete confirmation
