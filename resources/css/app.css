@@ -8,3 +8,6 @@ body{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* PrimeIcons for component icons */
+@import "primeicons/primeicons.css";

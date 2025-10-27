@@ -8,26 +8,27 @@ use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\JobPosted;
+use Inertia\Inertia;
 
 class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::with('employer')->latest()->simplePaginate(3);
+        $jobs = Job::with('employer')->latest()->get();
 
-        return view('jobs.index', [
+        return Inertia::render('Jobs/Index', [
             'jobs' => $jobs
         ]);
     }
 
     public function create()
     {
-        return view('jobs.create');
+        return Inertia::render('Jobs/Create');
     }
 
     public function show(Job $job)
     {
-        return view('jobs.show', ['job' => $job]);
+        return Inertia::render('Jobs/Show', ['job' => $job]);
     }
 
     public function store()
@@ -47,12 +48,12 @@ class JobController extends Controller
             Mail::to($job->employer->user)->queue(new JobPosted($job));
         }
 
-        return redirect('/jobs');
+        return redirect('/jobs')->with('success', 'Job posted successfully!');
     }
 
     public function edit(Job $job)
     {
-        return view('jobs.edit', ['job' => $job]);
+        return Inertia::render('Jobs/Edit', ['job' => $job]);
     }
 
     public function update(Job $job)
@@ -68,7 +69,7 @@ class JobController extends Controller
             'salary' => request('salary')
         ]);
 
-        return redirect('/jobs/' . $job->id);
+        return redirect('/jobs/' . $job->id)->with('success', 'Job updated successfully!');
     }
 
     public function destroy(Job $job)
@@ -76,6 +77,6 @@ class JobController extends Controller
         Gate::authorize('edit-job', $job);
         $job->delete();
 
-        return redirect('/jobs');
+        return redirect('/jobs')->with('success', 'Job deleted successfully!');
     }
 }

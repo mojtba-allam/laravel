@@ -6,12 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
+use Inertia\Inertia;
 
 class RegisteredUserController extends Controller
 {
     public function create()
     {
-        return view('auth.register');
+        return Inertia::render('Auth/Register');
     }
 
     public function store()
@@ -27,6 +28,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/jobs');
+        return redirect('/jobs')->with('success', 'Welcome! Your account has been created successfully.');
     }
 }
