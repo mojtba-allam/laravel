@@ -12,9 +12,9 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: 'blue',
-                secondary: 'green',
-                accent: 'black',
+                primary: '#2563eb',    // blue-600
+                secondary: '#64748b',  // slate-500
+                accent: '#10b981',     // emerald-500
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
