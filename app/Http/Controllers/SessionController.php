@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Inertia\Inertia;
 
 class SessionController extends Controller
 {
     public function create()
     {
-        return view('auth.login');
+        return Inertia::render('Auth/Login');
     }
 
     public function store()
@@ -27,13 +28,13 @@ class SessionController extends Controller
 
         request()->session()->regenerate();
 
-        return redirect('/jobs');
+        return redirect('/jobs')->with('success', 'Welcome back!');
     }
 
     public function destroy()
     {
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'You have been logged out successfully.');
     }
 }
