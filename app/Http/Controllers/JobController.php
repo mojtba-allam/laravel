@@ -14,7 +14,7 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::with('employer')->latest()->get();
+        $jobs = Job::with('employer.user')->latest()->get();
 
         return Inertia::render('Jobs/Index', [
             'jobs' => $jobs

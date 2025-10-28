@@ -28,6 +28,11 @@ class Job extends Model {
     public function getCanEditAttribute()
     {
         $user = Auth::user();
-        return $user ? $user->can('edit', $this) : false;
+
+        if ($user instanceof \App\Models\User) {
+            return $user->can('edit', $this);
+        }
+
+        return false;
     }
 }

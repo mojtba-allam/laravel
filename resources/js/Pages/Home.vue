@@ -6,7 +6,7 @@
         <div class="bg-white">
             <div class="max-w-4xl mx-auto py-16 px-4 text-center">
                 <h1 class="text-4xl font-bold text-gray-900 mb-6">
-                    Welcome to Laravel Jobs
+                    Welcome to Jobs
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
                     Find your next opportunity or post job openings to connect with talented professionals.
@@ -47,7 +47,7 @@
         <div class="bg-gray-50 py-16">
             <div class="max-w-6xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
-                    Why Choose Laravel Jobs?
+                    Why Choose Jobs?
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="text-center">
