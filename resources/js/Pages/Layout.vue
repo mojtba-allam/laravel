@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gray-50 flex flex-col">
         <!-- Toast Container -->
         <Toast />
 
@@ -150,11 +150,71 @@
         </Sidebar>
 
         <!-- Main Content -->
-        <main class="py-8">
+        <main class="flex-grow py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <slot />
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- About Section -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Job for all</h3>
+                        <p class="text-gray-300 text-sm">
+                            Your trusted platform for finding the perfect job opportunity. 
+                            Connect with employers and discover your next career move.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <Link href="/" class="text-gray-300 hover:text-white text-sm">
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/jobs" class="text-gray-300 hover:text-white text-sm">
+                                    Browse Jobs
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/contact" class="text-gray-300 hover:text-white text-sm">
+                                    Contact Us
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Get in Touch</h3>
+                        <p class="text-gray-300 text-sm mb-2">
+                            Have questions? We're here to help!
+                        </p>
+                        <Link 
+                            href="/contact" 
+                            class="inline-block bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+                        >
+                            Contact Us
+                        </Link>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                    <p class="text-gray-400 text-sm">
+                        &copy; {{ currentYear }} Job for all. All rights reserved. | Developed by 
+                        <span class="text-primary font-medium">Mojtba Allam</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
 </template>
 
@@ -179,6 +239,9 @@ const isAuthenticated = computed(() => !!user.value);
 
 // Current route for navigation highlighting
 const currentRoute = computed(() => page.props.currentRoute);
+
+// Current year for footer
+const currentYear = computed(() => new Date().getFullYear());
 
 // Flash messages
 const flash = computed(() => page.props.flash);

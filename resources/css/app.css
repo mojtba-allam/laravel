@@ -1,13 +1,12 @@
-body{
-    background-color: #f0f0f0;
-}
+/* Import PrimeIcons */
+@import "primeicons/primeicons.css";
 
-@import "tailwindcss";
-@source "../views/components/layout.blade.php";
-
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* PrimeIcons for component icons */
-@import "primeicons/primeicons.css";
+/* Custom styles */
+body{
+    background-color: #f8fafc;
+}
